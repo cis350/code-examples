@@ -1,0 +1,17 @@
+[{
+		"img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png",
+		"option1": "Terrier",
+		"option2": "Foxhound",
+		"option3": "Bulldog",
+		"option4": "Geman S",
+		"correct": "Terrier"
+	},
+	{
+		"img": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Kittyply_edit1.jpg",
+		"option1": "Burmese",
+		"option2": "Manx",
+		"option3": "Ragdoll",
+		"option4": "Persian",
+		"correct": "Manx"
+	}
+]

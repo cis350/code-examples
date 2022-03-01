@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
+<div>
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <button
+    onClick={[Function]}
+    type="submit"
+  >
+    Start
+  </button>
+</div>
+`;
