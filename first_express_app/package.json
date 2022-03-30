@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Our first express app",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "cis350"
+  ],
+  "author": "CIS350",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
