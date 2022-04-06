@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Our first express app",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --coverage --forceExit"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "cis350"
+  ],
+  "author": "CIS350",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "jest": "^27.5.1",
+    "mongodb": "^4.4.1",
+    "supertest": "^6.2.2"
+  }
+}
