@@ -28,12 +28,13 @@ webapp.get('/', (req, resp) => {
 webapp.post('/login', async (req, resp)=>{
      // check the name was provided
      if(!req.body.name || req.body.name.length === 0){
-         resp.status(404).json({error: 'username not provided'});
+        resp.status(404).json({error: 'username not provided'});
+        return;
      }
      try{
          const result = await lib.addPlayer(db, {name: req.body.name, points: 3});
          //send the response
-         resp.status(201).json({message: `Player with id ${JSON.stringify(result.insertedId)} added`});
+        resp.status(201).json({message: `Player with id ${JSON.stringify(result.insertedId)} added`});
 
      }catch(err){
         resp.status(500).json({error: 'try again later'});
@@ -59,8 +60,14 @@ const port = 5000;
 
 //start the app and connect to the DB
 webapp.listen(port, async () =>{
+    try{
     db = await lib.connect(url);
-    console.log(`Express server running on port:${port}`);
+    // console.log(`Express server running on port:${port}`);
+    }catch(err){
+        throw new Error('cannot start server');
+
+    }
+    
 });
 
 module.exports = webapp; // export for testing
