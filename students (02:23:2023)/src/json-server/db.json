@@ -1,0 +1,82 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Justin",
+      "email": "jj@sas.upenn.edu",
+      "major": "Music"
+    },
+    {
+      "id": 2,
+      "name": "Molly",
+      "email": "mm@sas.upenn.edu",
+      "major": "Math"
+    },
+    {
+      "id": 3,
+      "name": "Michael",
+      "email": "mimi@design.upen.edu",
+      "major": "Design"
+    },
+    {
+      "id": 4,
+      "name": "Keith",
+      "email": "kk@cis.upenn.edu",
+      "major": "CIS"
+    },
+    {
+      "id": 5,
+      "name": "Nicky",
+      "email": "nn@upenn.edu",
+      "major": "Math"
+    },
+    {
+      "id": 6,
+      "name": "Arlette",
+      "email": "aa@upenn.edu",
+      "major": "MEAM"
+    },
+    {
+      "name": "Abir",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 7
+    },
+    {
+      "name": "Abir",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 8
+    },
+    {
+      "name": "Abir",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 9
+    },
+    {
+      "name": "Abir",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 10
+    },
+    {
+      "name": "Maggie",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 11
+    },
+    {
+      "name": "Maggie",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 12
+    },
+    {
+      "name": "Maggie",
+      "email": "aba@upenn.edu",
+      "major": "Music",
+      "id": 13
+    }
+  ]
+}
