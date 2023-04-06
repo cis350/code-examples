@@ -12,7 +12,7 @@ const cors = require('cors');
 const webapp = express();
 
 // import authentication functions
-const { authenticateUser } = require('./utils/auth')
+const { authenticateUser, verifyUser } = require('./utils/auth')
 // enable cors
 webapp.use(cors());
 
@@ -36,7 +36,7 @@ webapp.post('/login', (req, resp)=>{
   // check that the name was sent in the body
   if(!req.body.name || req.body.name===''){
     resp.status(401).json({error: 'empty or missing name'});
-    resp.end();
+    return;
   }
   // authenticate the user
   try{
@@ -86,6 +86,7 @@ webapp.get('/student/:id', async (req, res) => {
 
 /**
  * route implementation POST /student
+ * validate the session
  */
 webapp.post('/student', async (req, resp) =>{
     // parse the body
@@ -93,19 +94,26 @@ webapp.post('/student', async (req, resp) =>{
         resp.status(404).json({message: 'missing name, email or major in the body'});
         return;
     }
-    try{
-        // create the new student object
-        const newStudent = {
+    // verify the session
+    if(await verifyUser(req.headers.authorization)){
+        try{
+          // create the new student object
+          const newStudent = {
             name: req.body.name,
             email: req.body.email,
             major: req.body.major
-        }
-        const result = await dbLib.addStudent(newStudent);
-        resp.status(201).json({data: {id: result}});
+          }
+          const result = await dbLib.addStudent(newStudent);
+          resp.status(201).json({data: {id: result}});
 
-    }catch(err){
+      }catch(err){
         resp.status(400).json({message: 'There was an error'});
+      }
     }
+    else{
+      resp.status(401).json({message: 'Failed Authentication'});
+    }
+    
 
 });
 

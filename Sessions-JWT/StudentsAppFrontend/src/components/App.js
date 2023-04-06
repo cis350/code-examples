@@ -3,11 +3,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import FilterableStudentsTable from './FilterableStudentsTable';
 import AddStudent from './AddStudent';
 // import api functions
-import { getAllStudents } from '../api/students';
+import { getAllStudents, loginUser } from '../api/students';
 
 function App() {
   // add a state to the component
-  const [login, setLogin] = useState(false);
+  // update the login state to check for the presence 
+  // of the JWT
+  const [login, setLogin] = useState(sessionStorage.getItem('app-token')!== null);
   const name = useRef(''); // reference, its value persists  between rendering
   
   // lifted state: the list of student
@@ -36,11 +38,31 @@ function App() {
 
 
   },[students.length]); // dependency list
-  // button click event handler.
-  const handleClick = (e) => {
-    // update the login state
-    setLogin(!login);
-    console.log('value', e.target.value);
+  // login button click event handler.
+  const handleLogin = async (e) => {
+    // authenticate the user
+    // retrieve the token
+    const token = await loginUser(name.current);
+    // check if the token is valid
+    if(token){
+      // store the token
+      sessionStorage.setItem('app-token', token);
+      // update the login state
+      setLogin(true);
+      console.log('value', e.target.value);
+
+    }
+    
+    
+  };
+
+  // logout button click event handler.
+  const handleLogout = () => {
+    // detele the JWT
+    sessionStorage.removeItem('app-token');
+    // relaunch the app
+    window.location.reload(true);
+
   };
   // input change event handler
   const handleChange = (e) => {
@@ -56,7 +78,7 @@ function App() {
           Name:
           <input type="text" name="name" onChange={handleChange} />
         </label>
-        <button type="button" onClick={handleClick}>Login</button>
+        <button type="button" onClick={handleLogin}>Login</button>
       </div>
     );
   }
@@ -70,7 +92,7 @@ function App() {
       </label>
       <AddStudent students={students} addNewStudent={setStudents}/>
       <FilterableStudentsTable students={students}/>
-      <button type="button" onClick={handleClick}>Logout</button>
+      <button type="button" onClick={handleLogout}>Logout</button>
     </div>
   );
 }

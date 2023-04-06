@@ -46,8 +46,6 @@ const verifyUser = async (token) =>{
             return false;
         }
         return true;
-
-
     }catch(err){
         // invalid token
         console.log('error', err.message);
