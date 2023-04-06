@@ -14,6 +14,7 @@ function App() {
 
   // fetch the list of connected users and messages inside useEffect
   useEffect(() =>{
+    let intervalID;
     async function fetchUsers(){
       chatUsers.current = await getUsers();
       // update the state 
@@ -30,11 +31,11 @@ function App() {
 
     // we want to fetch the users frequently (5 s)
     //we will use server polling with setInterval
-    setInterval(() => {
+    intervalID = setInterval(() => {
       fetchUsers();
       fetchmessages();
     }, 5000);
-    
+    return () => clearInterval(intervalID);
   },[numUsers, messages]);
 
 
@@ -95,6 +96,7 @@ function ConnectedUsers(props) {
 function MessagesComponent(props) {
   let receiver = useRef('');
   let content = useRef('');
+  let counterKey = 0; 
   const handleSendMessage = async(e) =>{
     e.preventDefault();
     await sendMessage(props.user, receiver.current, content.current);
@@ -105,7 +107,7 @@ return (
   <div>
     <div>
       <h2>Previous Messages</h2>
-      <div>{props.messages.map( msg => <p>{JSON.stringify(msg)}</p>)}</div>
+      <div>{props.messages.map( msg => <p key={counterKey++}>{JSON.stringify(msg)}</p>)}</div>
       <hr />
     </div>
     <h2>New Message</h2>
