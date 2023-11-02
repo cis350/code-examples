@@ -25,9 +25,6 @@ webapp.use(express.urlencoded({
   extended: true,
 }));
 
-// declare DB object
-
-let db;
 
 // Start server and connect to the DB
 webapp.listen(port, async () => {
@@ -63,11 +60,11 @@ webapp.post('/upload/', async (req, res) => {
       });
 
       fStream.on('end', async () => {
-        // send buffer to AWS
+        // send buffer to AWS - The url of the object is returned
         const s3URL =  await s3.uploadFile(cacheBuffer, files.File_0.name);
         console.log('end', cacheBuffer.length);
 
-        // You can store the URL in mongoDB with the rest of the data
+        // You can store the URL in mongoDB along with the rest of the data
         // send a response to the client
         res.status(201).json({ message: `files uploaded at ${s3URL}` });   
       });   
