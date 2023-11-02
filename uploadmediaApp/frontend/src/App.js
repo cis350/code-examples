@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import uploadFile from './api/upload';
 
 
 const App = function () {
-  const [files, setFiles] = useState();
-  const [count, setCount] = useState(0);
+  const [files, setFiles] = useState([]);
 
-  useEffect(() => {
-    const info = document.getElementById('info');
-    info.innerHTML = `${count} file(s) selected: `;
-  }, [count]);
   // event handler for file selection
   const updateFile = (evt) => {
     setFiles([...evt.target.files]);
-    setCount(evt.target.files.length);
   };
 
   // event handler for files upload
@@ -34,7 +28,6 @@ const App = function () {
   return (
     <div>
       <h2>File Upload Example</h2>
-      <div id="info" />
       <div>
         File:
         <input
@@ -44,6 +37,7 @@ const App = function () {
           onChange={(e) => updateFile(e)}
         />
       </div>
+      <div>{files.length} file(s) selected</div>
       <button type="submit" onClick={() => handleUpload()}>
         Upload Files
       </button>
