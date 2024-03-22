@@ -1,0 +1,189 @@
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]? 
+compinit: initialization aborted
+complete:13: command not found: compdef
+ericfouh@ist-10032 backend % 
+ericfouh@ist-10032 backend % npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (backend) 
+version: (1.0.0) 
+description: Our awesome MERN stack app backend
+entry point: (index.js) 
+test command: jest --coverage
+git repository: 
+keywords: mongodb, nodejs, expressjs
+author: cis3500
+license: (ISC) 
+About to write to /Users/ericfouh/Downloads/project_3500/backend/package.json:
+
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Our awesome MERN stack app backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "mongodb",
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "cis3500",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) 
+ericfouh@ist-10032 backend % mkdir model
+ericfouh@ist-10032 backend % mdir controller
+zsh: command not found: mdir
+ericfouh@ist-10032 backend % mkdir controller
+ericfouh@ist-10032 backend % npm install express
+
+added 64 packages, and audited 65 packages in 3s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ericfouh@ist-10032 backend % npm install mongodb
+
+added 12 packages, and audited 77 packages in 2s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ericfouh@ist-10032 backend % npm install eslint
+
+added 101 packages, and audited 178 packages in 3s
+
+35 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ericfouh@ist-10032 backend % 
+ *  History restored 
+
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]? 
+compinit: initialization aborted
+complete:13: command not found: compdef
+
+
+ericfouh@Erics-MacBook-Pro-7 backend % 
+ericfouh@Erics-MacBook-Pro-7 backend % 
+ericfouh@Erics-MacBook-Pro-7 backend % cd ..
+ericfouh@Erics-MacBook-Pro-7 project_3500 % ls
+backend
+ericfouh@Erics-MacBook-Pro-7 project_3500 % rm -rf backend 
+ericfouh@Erics-MacBook-Pro-7 project_3500 % mkdir backend
+ericfouh@Erics-MacBook-Pro-7 project_3500 % cd backend 
+ericfouh@Erics-MacBook-Pro-7 backend % npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (backend) 
+version: (1.0.0) 
+description: MERN stack backend
+entry point: (index.js) 
+test command: jest --coverage
+git repository: 
+keywords: MVC, express, node, mongodb
+author: CIS3500
+license: (ISC) 
+About to write to /Users/ericfouh/Downloads/project_3500/backend/package.json:
+
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "MERN stack backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "MVC",
+    "express",
+    "node",
+    "mongodb"
+  ],
+  "author": "CIS3500",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) 
+ericfouh@Erics-MacBook-Pro-7 backend % npm i express
+
+added 64 packages, and audited 65 packages in 2s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ericfouh@Erics-MacBook-Pro-7 backend % npm i mongodb
+
+added 12 packages, and audited 77 packages in 2s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+ericfouh@Erics-MacBook-Pro-7 backend % npm init @eslint/config
+✔ How would you like to use ESLint? · style
+✔ What type of modules does your project use? · commonjs
+✔ Which framework does your project use? · none
+✔ Does your project use TypeScript? · No / Yes
+✔ Where does your code run? · browser
+✔ How would you like to define a style for your project? · guide
+✔ Which style guide do you want to follow? · airbnb
+✔ What format do you want your config file to be in? · JavaScript
+Checking peerDependencies of eslint-config-airbnb-base@latest
+Local ESLint installation not found.
+The config that you've selected requires the following dependencies:
+
+eslint-config-airbnb-base@latest eslint@^7.32.0 || ^8.2.0 eslint-plugin-import@^2.25.2
+✔ Would you like to install them now? · No / Yes
+✔ Which package manager do you want to use? · npm
+Installing eslint-config-airbnb-base@latest, eslint@^7.32.0 || ^8.2.0, eslint-plugin-import@^2.25.2
+
+added 183 packages, and audited 260 packages in 6s
+
+87 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Successfully created .eslintrc.js file in /Users/ericfouh/Downloads/project_3500/backend
+ericfouh@Erics-MacBook-Pro-7 backend % node model/users.js 
+connected to db: SP24_3500_project
+error: db already exists with different case already have: [SP24_3500_Project] trying to create [SP24_3500_project]
+^C
+ericfouh@Erics-MacBook-Pro-7 backend % node model/users.js
+connected to db: SP24_3500_Project
+New user created with id: 65f9cc2985aeef30b35c5991
+^C
+ericfouh@Erics-MacBook-Pro-7 backend % node model/users.js
+connected to db: SP24_3500_Project
+New user created with id: 65f9cc5bdf6ad10352f29c70
+^C
+ericfouh@Erics-MacBook-Pro-7 backend % pwd
+/Users/ericfouh/Downloads/project_3500/backend
+ericfouh@Erics-MacBook-Pro-7 backend % 
